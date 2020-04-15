@@ -12,7 +12,7 @@ public class App {
         p1.setUserName("二狗");
 
         Person p3 = new Person();
-        p3.setEmail("1085963924@qq.com,7777@ssd");
+        p3.setEmail("104@qq.com,7777@ssd");
         p3.setUserName("TOM");
        System.out.println(query(p3)); //SELECT * FROM user WHERE 1 = 1 AND userName AND userName = 'TOM'AND Email in('1085963924@qq.com','7777@ssd')
     }
@@ -83,8 +83,8 @@ public class App {
                         stringBuilder.append(" AND ").append(fieldName).append(" = ").append("'").append(fieldValue).append("'");
                         }
                     }else {
-                    stringBuilder.append(" AND ").append(fieldName).append(" = ").append(fieldValue);//拼装
-                         }
+                        stringBuilder.append(" AND ").append(fieldName).append(" = ").append(fieldValue);//拼装
+                    }
                 }
             }
         }
