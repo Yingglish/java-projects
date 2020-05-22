@@ -18,23 +18,34 @@ public class InterfaceApplication {
         obj.method();*/
 
         // 使用匿名内部类 省略MyInterfaceImpl的定义
-        MyInterface obj = new MyInterface() {
+/*        MyInterface obj = new MyInterface() {
             @Override
             public void method() {
                 System.out.println("实现类覆盖重写了方法");
             }
-        };
 
-        new InterfaceApplication().getMyInterface("arg1").method();
+            @Override
+            public String getArgs() {
+                return null;
+            }
+        };*/
+
+//        new InterfaceApplication().getMyInterface("arg1").method();
+        System.out.println(new InterfaceApplication().getMyInterface("arg1").getArgs());
     }
 
-    // 当所在的方法的形参需要被内部类里面使用时，该形参必须为final
+    // 当所在的方法的形参需要被内部类里面使用时，该形参必须为final jdk8
     public MyInterface getMyInterface(/*final*/ String name) {
         return  new MyInterface() {
-            private String name1 = name;
             @Override
             public void method() {
-                System.out.println("形参要被final修饰" + name1);
+                System.out.println("形参要被final修饰");
+            }
+
+            @Override
+            public String getArgs() {
+//                name = "hhh"; // 报错 自动被修饰为final
+                return name;
             }
         };
     }
@@ -42,6 +53,7 @@ public class InterfaceApplication {
 
 interface MyInterface {
     void method();
+    String getArgs();
 }
 
 class MyInterfaceImpl implements MyInterface {
@@ -49,5 +61,10 @@ class MyInterfaceImpl implements MyInterface {
     @Override
     public void method() {
         System.out.println("实现类覆盖重写了方法");
+    }
+
+    @Override
+    public String getArgs() {
+        return null;
     }
 }
