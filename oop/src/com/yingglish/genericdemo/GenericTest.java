@@ -1,4 +1,4 @@
-package com.yingglish.genericdemp;
+package com.yingglish.genericdemo;
 
 import java.util.Arrays;
 
