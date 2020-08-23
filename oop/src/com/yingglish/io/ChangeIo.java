@@ -22,12 +22,12 @@ import java.io.*;
  *			构造方法：
  *			1. OutputStreamWriter(OutputStream out) 创建一个使用默认字符编码的OutputStreamWriter。
  *			2. OutputStreamWriter(OutputStream out, String charsetName)
- 创建一个使用指定字符集的OutputStreamWriter。
- 普通方法：
- void write(char[] cbuf, int off, int len)
- append(CharSequence csq,int start,int end)
+                 创建一个使用指定字符集的OutputStreamWriter。
+                 普通方法：
+                 void write(char[] cbuf, int off, int len)
+                 append(CharSequence csq,int start,int end)
 
- 只有转换流可以设置字符集
+                 只有转换流可以设置字符集
 
  */
 public class ChangeIo {
