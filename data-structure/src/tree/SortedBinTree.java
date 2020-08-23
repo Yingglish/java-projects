@@ -58,7 +58,7 @@ public class SortedBinTree<T extends Comparable> {
          创建排序二叉树的步骤就是不断像排序二叉树中添加新节点（p）的过程
         （1）以根节点（root）为当前节点（current）开始搜索；
         （2）用新节点p的值和current的值进行比较；
-        （3）如果p.data>current.data，则current=current.right；若p.data<current.data，则current=current.left；
+        （3）如果p.data>current.data，则current=current.right；若p.data < current.data，则current=current.left；
         （4）重复（2）（3），直到找到合适的叶子节点位置；
         （5）将p添加到上面找到的合适位置，若新节点更大，则添加为右子节点；否则，加为左子节点
      */
