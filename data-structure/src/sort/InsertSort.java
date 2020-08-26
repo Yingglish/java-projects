@@ -1,5 +1,11 @@
 package sort;
 
+import sort.ref.DataWrap;
+
+/**
+ * 稳定排序
+ * 事件复杂度  平均 O(N^2)
+ */
 public class InsertSort {
 	public static void insertSort(DataWrap[] data) {
 		System.out.println("开始排序\n");
