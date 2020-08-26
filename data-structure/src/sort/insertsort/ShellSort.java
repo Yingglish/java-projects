@@ -1,7 +1,12 @@
-package sort;
+package sort.insertsort;
+
+import sort.ref.DataWrap;
 
 import java.util.Arrays;
 
+/**
+ * 以一个较为合适的步长h，让数据中相差为h的步数进行排序
+ */
 public class ShellSort {
     public static void shellSort(DataWrap[] data) {
         System.out.println("开始排序");
@@ -18,10 +23,10 @@ public class ShellSort {
             for (int i = h; i < arrLen; i++) {
                 // 整体后移时，保证data[i] 的值不会丢失
                 DataWrap tmp = data[i];
-                // i 处索引处的值比前面的所有值都大，表明有序，无须插入
+                // 若 i 处索引处的值比前面的所有值都大，表明有序，无须插入
                 // i - 1 索引之前的数据已经有序， i - 1索引处的元素值就是最大值
                 if (data[i].compareTo(data[i - h]) < 0) {
-                    int j = i -h;
+                    int j = i - h;
                     // 整体后移h格
                     for (; j >= 0 && data[j].compareTo(tmp) > 0; j -= h) {
                         data[j + h] = data[j];

@@ -1,9 +1,11 @@
 package sort;
 
 
+import sort.ref.DataWrap;
+
 public class MergeSort {
     public static void mergeSort(DataWrap[] data) {
-
+        sort(data , 0 , data.length - 1);
     }
 
     /**
@@ -21,6 +23,7 @@ public class MergeSort {
             // 对右边数组进行递归
             sort(data, center + 1, right);
             // 合并
+            merge(data, left, center, right);
         }
     }
 
@@ -38,20 +41,45 @@ public class MergeSort {
         // third记录中间数组的索引
         int third = left;
         int tmp = left;
-        while (left < center && mid <= right) {
-            // 从俩个数组取出小的放入中间数组
+        while (left <= center && mid <= right) {
+            // 从两个数组中取出小的放入中间数组
             if (data[left].compareTo(data[mid]) <= 0) {
                 tmpArr[third++] = data[left++];
-            } else {
+            }
+            else {
                 tmpArr[third++] = data[mid++];
             }
         }
-        //剩余部分依次放入中间数组
+        // 剩余部分依次放入中间数组
         while (mid <= right) {
             tmpArr[third++] = data[mid++];
         }
         while (left <= center) {
             tmpArr[third++] = data[left++];
         }
+        // 将中间数组中的内容复制拷回原数组
+        // (原left～right范围的内容复制回原数组)
+        while (tmp <= right) {
+            data[tmp] = tmpArr[tmp++];
+        }
+    }
+
+    public static void main(String[] args) {
+        DataWrap[] data = {
+                new DataWrap(9 , ""),
+                new DataWrap(-16 , ""),
+                new DataWrap(21 , "*"),
+                new DataWrap(23 , ""),
+                new DataWrap(-30 , ""),
+                new DataWrap(-49 , ""),
+                new DataWrap(21 , ""),
+                new DataWrap(30 , "*"),
+                new DataWrap(30 , "")
+        };
+        System.out.println("排序之前：\n"
+                + java.util.Arrays.toString(data));
+        mergeSort(data);
+        System.out.println("排序之后：\n"
+                + java.util.Arrays.toString(data));
     }
 }

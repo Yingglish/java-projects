@@ -2,6 +2,9 @@ package sort;
 
 import sort.ref.DataWrap;
 
+/**
+ * 冒泡排序是稳定排序算法
+ */
 public class BubbleSort {
     public static void bubbleSort(DataWrap[] data) {
         System.out.println("开始排序");
