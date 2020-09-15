@@ -36,43 +36,44 @@ public class LocalDateTimeTest {
         LocalTime localTime = LocalTime.now();
         LocalDateTime localDateTime = LocalDateTime.now();
 
-        System.out.println("LocalDate.now(): " + localDate);
-        System.out.println("LocalTime.now(): " + localTime);
-        System.out.println("LocalDateTime.now(): " + localDateTime);
+        System.out.println("LocalDate.now(): " + localDate); // LocalDate.now(): 2020-09-15
+        System.out.println("LocalTime.now(): " + localTime); // LocalTime.now(): 13:40:14.802431800
+        System.out.println("LocalDateTime.now(): " + localDateTime); // LocalDateTime.now(): 2020-09-15T13:40:14.802431800
         System.out.println();
 
 
         // of(): 按指定的年、月、日、时、分、秒创建LocalDateTime对象，没有偏移量
         LocalDateTime localDateTime1 = LocalDateTime.of(2025, 10, 1, 20, 8, 8);
-        System.out.println("LocalDateTime.of(2025, 10, 1, 20, 8, 8): " + localDateTime1);
+        System.out.println("LocalDateTime.of(2025, 10, 1, 20, 8, 8): " + localDateTime1); // LocalDateTime.of(2025, 10, 1, 20, 8, 8): 2025-10-01T20:08:08
         System.out.println();
 
         // getXxx(): 获取相应的字段属性
         System.out.println("getYear(): " + localDateTime.getYear());
-        System.out.println("getDayOfMonth(): " + localDateTime.getDayOfMonth());
-        System.out.println("getDayOfYear(): " + localDateTime.getDayOfYear());
-        System.out.println("getMonth(): " + localDateTime.getMonth());
+        System.out.println("getDayOfMonth(): " + localDateTime.getDayOfMonth()); // getDayOfMonth(): 15
+        System.out.println("getDayOfYear(): " + localDateTime.getDayOfYear()); // getDayOfYear(): 259
+        System.out.println("getMonth(): " + localDateTime.getMonth()); // getMonth(): SEPTEMBER
         System.out.println("getMonthValue(): " + localDateTime.getMonthValue());
-        System.out.println("getDayOfWeek(): " + localDateTime.getDayOfWeek());
+        System.out.println("getDayOfWeek(): " + localDateTime.getDayOfWeek()); // getDayOfWeek(): TUESDAY
         System.out.println();
 
         // withXxx(int t): 复制此LocalDateTime对象，设置复制的对象字段Xxx为t，最后返回复制后LocalDateTime对象
         // 不修改当前的LocalDateTime对象。体现出不变性
-        LocalDateTime localDateTime2 = localDateTime.withDayOfMonth(10);
+        LocalDateTime localDateTime2 = localDateTime.withDayOfMonth(10); // localDateTime.withDayOfMonth(10): 2020-09-10T13:40:14.802431800
         System.out.println("localDateTime.withDayOfMonth(10): " + localDateTime2);
-        System.out.println("localDateTime: " + localDateTime);
+        System.out.println("localDateTime: " + localDateTime); // localDateTime: 2020-09-15T13:40:14.802431800
         System.out.println();
 
         // plusXxx(int t): 增加时间t，向前拨时间t，返回调整好后的LocalDateTime对象，不修改当前的LocalDateTime对象
         System.out.println("localDateTime1: " + localDateTime1);
-        LocalDateTime localDateTime3 = localDateTime1.plusDays(7);
+        LocalDateTime localDateTime3 = localDateTime1.plusDays(7); // localDateTime1.plusDays(7): 2025-10-08T20:08:08
         System.out.println("localDateTime1.plusDays(7): " + localDateTime3);
-        System.out.println("localDateTime1: " + localDateTime1);
+        System.out.println("localDateTime1.plusMonths(7): " + localDateTime1.plusMonths(7)); // localDateTime1.plusMonths(7): 2026-05-01T20:08:08
         System.out.println();
 
         // minusXxx(int t): 减少时间t，向后拨时间t，返回调整好后的LocalDateTime对象，不修改当前的LocalDateTime对象
-        LocalDateTime localDateTime4 = localDateTime1.plusDays(7);
-        System.out.println("localDateTime1.plusDays(7): " + localDateTime4);
+        LocalDateTime localDateTime4 = localDateTime1.minusDays(7);
+        System.out.println("localDateTime1.minusDays(7): " + localDateTime4);
+        System.out.println("localDateTime1.minusYears(1): " + localDateTime1.minusYears(1));
         System.out.println("localDateTime1: " + localDateTime1);
 
 
@@ -87,7 +88,7 @@ public class LocalDateTimeTest {
         LocalDate localDate2 = LocalDate.now();
         LocalTime localTime2 = LocalTime.of(00, 00, 00);
         LocalDateTime localDateTime5 = LocalDateTime.of(localDate2, localTime2);
-        System.out.println(localDateTime5);
+        System.out.println(localDateTime5); // 2020-09-15T00:00
     }
 
     /**
